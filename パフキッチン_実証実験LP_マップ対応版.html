@@ -154,6 +154,11 @@ footer{padding:34px 0 105px;border-top:1px solid var(--line);color:var(--muted);
 .toast.show{opacity:1;transform:translate(-50%,0)}
 .reveal{opacity:0;transform:translateY(18px);transition:.6s ease}
 .reveal.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+}
 @media(max-width:900px){
   .nav-links a:not(.btn){display:none}
   .hero{padding-top:42px}
@@ -320,24 +325,24 @@ footer{padding:34px 0 105px;border-top:1px solid var(--line);color:var(--muted);
     </div>
     <div class="faq-list">
       <div class="faq-item reveal">
-        <button class="faq-q"><span>ずっと13:00〜21:00までいないとダメですか？</span><span>＋</span></button>
-        <div class="faq-a"><div>いいえ。時間内であれば途中参加・途中退出OKです。都合の良い時間にお越しください。</div></div>
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-1"><span>ずっと13:00〜21:00までいないとダメですか？</span><span aria-hidden="true">＋</span></button>
+        <div class="faq-a" id="faq-a-1"><div>いいえ。時間内であれば途中参加・途中退出OKです。都合の良い時間にお越しください。</div></div>
       </div>
       <div class="faq-item reveal">
-        <button class="faq-q"><span>何を持っていけばいいですか？</span><span>＋</span></button>
-        <div class="faq-a"><div>作りたい料理の食材をご持参ください。基本的な調味料はこちらで用意します。特殊な調味料が必要な場合はご自身でお持ちください。</div></div>
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-2"><span>何を持っていけばいいですか？</span><span aria-hidden="true">＋</span></button>
+        <div class="faq-a" id="faq-a-2"><div>作りたい料理の食材をご持参ください。基本的な調味料はこちらで用意します。特殊な調味料が必要な場合はご自身でお持ちください。</div></div>
       </div>
       <div class="faq-item reveal">
-        <button class="faq-q"><span>調理器具や食器はありますか？</span><span>＋</span></button>
-        <div class="faq-a"><div>今回の会場では調理器具・食器を利用できます。</div></div>
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-3"><span>調理器具や食器はありますか？</span><span aria-hidden="true">＋</span></button>
+        <div class="faq-a" id="faq-a-3"><div>今回の会場では調理器具・食器を利用できます。</div></div>
       </div>
       <div class="faq-item reveal">
-        <button class="faq-q"><span>料理教室ですか？</span><span>＋</span></button>
-        <div class="faq-a"><div>料理教室ではありません。講師や決められたメニューはなく、自分が食べたいものを自由に作る実証実験です。</div></div>
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-4"><span>料理教室ですか？</span><span aria-hidden="true">＋</span></button>
+        <div class="faq-a" id="faq-a-4"><div>料理教室ではありません。講師や決められたメニューはなく、自分が食べたいものを自由に作る実証実験です。</div></div>
       </div>
       <div class="faq-item reveal">
-        <button class="faq-q"><span>参加費は本当に無料ですか？</span><span>＋</span></button>
-        <div class="faq-a"><div>はい。今回はサービスの価値を確認するための実証実験として無料で実施します。</div></div>
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-5"><span>参加費は本当に無料ですか？</span><span aria-hidden="true">＋</span></button>
+        <div class="faq-a" id="faq-a-5"><div>はい。今回はサービスの価値を確認するための実証実験として無料で実施します。</div></div>
       </div>
     </div>
     <div class="notice reveal">※今回は実証実験のため、運営側から食材や完成した食事の提供はありません。実際に体験していただいた後、簡単なアンケートへのご協力をお願いします。</div>
@@ -382,9 +387,10 @@ footer{padding:34px 0 105px;border-top:1px solid var(--line);color:var(--muted);
   const START = new Date('2026-08-10T13:00:00+09:00');
   const END = new Date('2026-08-10T21:00:00+09:00');
   const cd = document.getElementById('countdown');
+  let timer;
   function tick(){
     const now = new Date();
-    if(now >= END){ cd.textContent = '終了しました'; return; }
+    if(now >= END){ cd.textContent = '終了しました'; clearInterval(timer); return; }
     if(now >= START){ cd.textContent = '開催中！'; return; }
     const diff = START - now;
     const d = Math.floor(diff/86400000);
@@ -393,10 +399,13 @@ footer{padding:34px 0 105px;border-top:1px solid var(--line);color:var(--muted);
     const s = Math.floor((diff%60000)/1000);
     cd.textContent = `${d ? d+'日 ' : ''}${h}時間 ${m}分 ${s}秒`;
   }
-  tick(); setInterval(tick,1000);
+  tick(); timer = setInterval(tick,1000);
 
   document.querySelectorAll('.faq-q').forEach(btn => {
-    btn.addEventListener('click', () => btn.parentElement.classList.toggle('open'));
+    btn.addEventListener('click', () => {
+      const isOpen = btn.parentElement.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(isOpen));
+    });
   });
 
   const toast = document.getElementById('toast');
@@ -406,7 +415,14 @@ footer{padding:34px 0 105px;border-top:1px solid var(--line);color:var(--muted);
   }
   document.getElementById('copyHandle').addEventListener('click', async () => {
     try{ await navigator.clipboard.writeText('@pabf_kitchen'); showToast('@pabf_kitchen をコピーしました'); }
-    catch(e){ showToast('@pabf_kitchen'); }
+    catch(e){
+      const input = document.createElement('textarea');
+      input.value = '@pabf_kitchen'; input.setAttribute('readonly','');
+      input.style.position = 'fixed'; input.style.opacity = '0';
+      document.body.appendChild(input); input.select();
+      const copied = document.execCommand('copy'); input.remove();
+      showToast(copied ? '@pabf_kitchen をコピーしました' : '@pabf_kitchen');
+    }
   });
 
   const io = new IntersectionObserver(entries => {
