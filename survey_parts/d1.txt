@@ -171,7 +171,7 @@ textarea{min-height:105px;resize:vertical}
     <div class="progress"><div id="progressBar"></div></div>
   </div>
 
-  <form id="surveyForm" class="formrun" action="https://form.run/api/v1/r/h60v6t6gd4eq23xvf23z20xy" method="post" target="submissionFrame" novalidate>
+  <form id="surveyForm" class="formrun" action="https://form.run/api/v1/r/h60v6t6gd4eq23xvf23z20xy" method="post" novalidate>
     <input type="hidden" name="アンケートバージョン" value="PABF_C_2026-08">
     <div class="_formrun_gotcha" aria-hidden="true" style="position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;">
       <label for="_formrun_gotcha">この項目は入力しないでください</label>
