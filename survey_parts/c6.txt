@@ -1,0 +1,210 @@
+sabled = !show;
+    });
+
+    // FormRun側の条件付き必須もQ3の分岐に合わせる
+    const conditionalRequired = [
+      experienceBlock.querySelector('[name="Q4_作りたかった料理"]'),
+      experienceBlock.querySelector('[name="Q5_作れなかった理由[]"]'),
+      experienceBlock.querySelector('[name="Q6_代替行動"]'),
+      experienceBlock.querySelector('[name="Q7_代替手段満足度"]')
+    ].filter(Boolean);
+    conditionalRequired.forEach(el => {
+      if (show) el.setAttribute('data-formrun-required', '');
+      else el.removeAttribute('data-formrun-required');
+    });
+
+    updateProgress();
+  }
+  form.querySelectorAll('input[name="Q3_作れなかった経験"]').forEach(r => r.addEventListener('change', updateExperienceBranch));
+
+  // Q11 max 3 + build Q12 from selected values
+  function refreshQ12() {
+    const selected = [...document.querySelectorAll('input[name="Q11_魅力上位3つ[]"]:checked')].map(x => x.value);
+    const select = document.getElementById('q12select');
+    const prev = select.value;
+    select.innerHTML = '<option value="">選択してください</option>';
+    selected.forEach(v => {
+      const o = document.createElement('option');
+      o.value = v; o.textContent = v;
+      select.appendChild(o);
+    });
+    if (selected.includes(prev)) select.value = prev;
+  }
+  document.querySelectorAll('input[name="Q11_魅力上位3つ[]"]').forEach(cb => {
+    cb.addEventListener('change', () => {
+      const all = [...document.querySelectorAll('input[name="Q11_魅力上位3つ[]"]:checked')];
+      const special = all.some(x => x.value === '特に魅力を感じない');
+      if (!special && all.length > 3) {
+        cb.checked = false;
+        alert('Q11は最大3つまで選択できます。');
+      }
+      refreshQ12();
+      updateOtherFields();
+      updateProgress();
+    });
+  });
+
+  // Contact opt-in
+  const contactOptin = document.getElementById('contactOptin');
+  const emailBlock = document.getElementById('emailBlock');
+  const contactEmail = document.getElementById('contactEmail');
+  function updateContact() {
+    const on = contactOptin.checked;
+    emailBlock.classList.toggle('hidden', !on);
+    contactEmail.disabled = !on;
+    contactEmail.required = on;
+    if (on) contactEmail.setAttribute('data-formrun-required', '');
+    else contactEmail.removeAttribute('data-formrun-required');
+    if (!on) contactEmail.value = '';
+    updateProgress();
+  }
+  contactOptin.addEventListener('change', updateContact);
+
+  // Generic interaction hooks
+  form.addEventListener('change', () => { updateOtherFields(); updateProgress(); });
+  form.addEventListener('input', updateProgress);
+
+  function isAnsweredByName(name) {
+    const els = [...form.querySelectorAll(`[name="${CSS.escape(name)}"]`)].filter(x => !x.disabled);
+    if (!els.length) return true;
+    const type = els[0].type;
+    if (type === 'radio' || type === 'checkbox') return els.some(x => x.checked);
+    return els.some(x => String(x.value || '').trim() !== '');
+  }
+
+  function updateProgress() {
+    const requiredNames = [
+      'Q1_普段の料理頻度','Q2_料理が好きか','Q3_作れなかった経験',
+      'Q9_料理することの価値','Q10_基本コンセプト利用意向',
+      'Q11_魅力上位3つ[]','Q12_最重要価値','Q13_揚げ物FW利用意向',
+      'Q15_セルフレストラン利用意向','Q16_セルフレストラン利用場面[]',
+      'Q17_食材準備の利用閾値','Q18_食材持参の障壁',
+      'Q19_自宅から最長所要時間','Q20_最も使いやすい立地','Q21_許容料金',
+      'Q22_Must条件[]','Q23_使わない場面[]','Q24_住まい','Q25_年代','Q26_普段作る人数'
+    ];
+    if (form.querySelector('input[name="Q3_作れなかった経験"]:checked')?.value === 'ある') {
+      requiredNames.splice(3,0,'Q4_作りたかった料理','Q5_作れなかった理由[]','Q6_代替行動','Q7_代替手段満足度');
+    }
+    if (contactOptin.checked) requiredNames.push('Q27_連絡先メール');
+    const done = requiredNames.filter(isAnsweredByName).length;
+    const pct = Math.round(done/requiredNames.length*100);
+    progressBar.style.width = pct + '%';
+    progressText.textContent = pct + '%';
+  }
+
+  function checkboxRequired(name) {
+    return [...form.querySelectorAll(`input[name="${CSS.escape(name)}"]`)].filter(x => !x.disabled).some(x => x.checked);
+  }
+
+  function validate() {
+    let ok = true;
+    let firstBad = null;
+
+    form.querySelectorAll('.q').forEach(q => q.style.outline = '');
+
+    // Native required fields
+    [...form.querySelectorAll('[required]')].filter(x => !x.disabled).forEach(el => {
+      if (!el.checkValidity()) {
+        ok = false;
+        const q = el.closest('.q');
+        if (q) q.style.outline = '2px solid rgba(168,94,88,.35)';
+        if (!firstBad) firstBad = q || el;
+      }
+    });
+
+    // Conditional Q4-Q7 and checkbox groups
+    const hasExperience = form.querySelector('input[name="Q3_作れなかった経験"]:checked')?.value === 'ある';
+    if (hasExperience) {
+      const checks = [
+        ['Q4_作りたかった料理', !!form.querySelector('[name="Q4_作りたかった料理"]').value.trim()],
+        ['Q5_作れなかった理由[]', checkboxRequired('Q5_作れなかった理由[]')],
+        ['Q6_代替行動', isAnsweredByName('Q6_代替行動')],
+        ['Q7_代替手段満足度', isAnsweredByName('Q7_代替手段満足度')]
+      ];
+      checks.forEach(([name, passed]) => {
+        if (!passed) {
+          ok = false;
+          const el = form.querySelector(`[name="${CSS.escape(name)}"]`);
+          const q = el?.closest('.q');
+          if (q) q.style.outline = '2px solid rgba(168,94,88,.35)';
+          if (!firstBad) firstBad = q || el;
+        }
+      });
+    }
+
+    ['Q11_魅力上位3つ[]','Q16_セルフレストラン利用場面[]','Q22_Must条件[]','Q23_使わない場面[]'].forEach(name => {
+      if (!checkboxRequired(name)) {
+        ok = false;
+        const el = form.querySelector(`[name="${CSS.escape(name)}"]`);
+        const q = el?.closest('.q');
+        if (q) q.style.outline = '2px solid rgba(168,94,88,.35)';
+        if (!firstBad) firstBad = q || el;
+      }
+    });
+
+    if (contactOptin.checked && !contactEmail.checkValidity()) {
+      ok = false;
+      const q = contactEmail.closest('.q');
+      if (q) q.style.outline = '2px solid rgba(168,94,88,.35)';
+      if (!firstBad) firstBad = q || contactEmail;
+    }
+
+    errorBanner.classList.toggle('show', !ok);
+    if (!ok && firstBad) firstBad.scrollIntoView({behavior:'smooth',block:'center'});
+    return ok;
+  }
+
+  form.addEventListener('submit', e => {
+    if (!validate()) {
+      e.preventDefault();
+      return;
+    }
+    const action = form.getAttribute('action');
+    if (!action || action === endpointPlaceholder || action.includes('__FORMRUN_ACTION__')) {
+      e.preventDefault();
+      alert('このHTMLはアンケート画面まで完成していますが、回答の保存先がまだ接続されていません。管理者がFormRunのコード型フォーム action URL を設定する必要があります。');
+      return;
+    }
+    submitting = true;
+    submitBtn.disabled = true;
+    submitBtn.textContent = '送信中…';
+    errorBanner.classList.remove('show');
+    // Standard cross-origin POST goes into hidden iframe.
+  });
+
+  submissionFrame.addEventListener('load', () => {
+    if (!submitting) return;
+    setTimeout(() => {
+      form.classList.add('hidden');
+      document.querySelector('.progress-shell').classList.add('hidden');
+      document.querySelector('.hero').classList.add('hidden');
+      document.getElementById('thanks').classList.add('show');
+      history.pushState({complete:true}, '', '#complete');
+      document.title = '送信完了｜料理・自炊に関するアンケート';
+      window.scrollTo({top:0,behavior:'smooth'});
+      submitting = false;
+    }, 450);
+  });
+
+  const backToTopBtn = document.getElementById('backToTopBtn');
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+      history.replaceState(null, '', location.pathname + location.search);
+      location.reload();
+    });
+  }
+
+  // #complete は送信成功後にだけ付与する。再読み込み時は回答画面に戻す。
+  if (location.hash === '#complete') {
+    history.replaceState(null, '', location.pathname + location.search);
+  }
+
+  updateExperienceBranch();
+  updateOtherFields();
+  updateContact();
+  refreshQ12();
+  updateProgress();
+})();
+</script>
+</body>
+</html>
