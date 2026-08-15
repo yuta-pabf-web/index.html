@@ -86,7 +86,6 @@
     <button type="button" class="submit-btn" id="backToTopBtn" style="margin-top:24px;min-width:180px;">最初の画面に戻る</button>
   </div>
 
-  <iframe name="submissionFrame" id="submissionFrame" class="hidden" title="submission"></iframe>
   <div class="footer">PABF KITCHEN / Research Survey</div>
 </div>
 
@@ -100,7 +99,6 @@
   const progressBar = document.getElementById('progressBar');
   const progressText = document.getElementById('progressText');
   const submitBtn = document.getElementById('submitBtn');
-  const submissionFrame = document.getElementById('submissionFrame');
   let submitting = false;
 
   // Show/hide "other" fields
