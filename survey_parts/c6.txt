@@ -169,21 +169,16 @@ sabled = !show;
     submitBtn.disabled = true;
     submitBtn.textContent = '送信中…';
     errorBanner.classList.remove('show');
-    // Standard cross-origin POST goes into hidden iframe.
-  });
 
-  submissionFrame.addEventListener('load', () => {
-    if (!submitting) return;
+    // FormRunの標準送信に任せる。遷移できない場合は操作可能な状態へ戻す。
     setTimeout(() => {
-      form.classList.add('hidden');
-      document.querySelector('.progress-shell').classList.add('hidden');
-      document.querySelector('.hero').classList.add('hidden');
-      document.getElementById('thanks').classList.add('show');
-      history.pushState({complete:true}, '', '#complete');
-      document.title = '送信完了｜料理・自炊に関するアンケート';
-      window.scrollTo({top:0,behavior:'smooth'});
+      if (!submitting || document.visibilityState === 'hidden') return;
       submitting = false;
-    }, 450);
+      submitBtn.disabled = false;
+      submitBtn.textContent = '回答を送信する';
+      errorBanner.textContent = '送信を完了できませんでした。通信環境を確認して、もう一度お試しください。';
+      errorBanner.classList.add('show');
+    }, 15000);
   });
 
   const backToTopBtn = document.getElementById('backToTopBtn');
