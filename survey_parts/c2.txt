@@ -1,0 +1,111 @@
+div>
+        <div class="options">
+          <label class="choice"><input required type="radio" name="Q1_普段の料理頻度" value="ほぼ毎日" data-formrun-required>ほぼ毎日</label>
+          <label class="choice"><input type="radio" name="Q1_普段の料理頻度" value="週3〜5回">週3〜5回</label>
+          <label class="choice"><input type="radio" name="Q1_普段の料理頻度" value="週1〜2回">週1〜2回</label>
+          <label class="choice"><input type="radio" name="Q1_普段の料理頻度" value="月に数回">月に数回</label>
+          <label class="choice"><input type="radio" name="Q1_普段の料理頻度" value="ほとんどしない">ほとんどしない</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-title">Q2. 料理すること自体は好きですか？<span class="required">必須</span></div>
+        <p class="q-help">1＝全く好きではない ／ 5＝かなり好き</p>
+        <div class="scale">
+          <label class="choice"><input required type="radio" name="Q2_料理が好きか" value="1" data-formrun-required><span>1<small>全く好きではない</small></span></label>
+          <label class="choice"><input type="radio" name="Q2_料理が好きか" value="2">2</label>
+          <label class="choice"><input type="radio" name="Q2_料理が好きか" value="3">3</label>
+          <label class="choice"><input type="radio" name="Q2_料理が好きか" value="4">4</label>
+          <label class="choice"><input type="radio" name="Q2_料理が好きか" value="5"><span>5<small>かなり好き</small></span></label>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div class="section-no">02</div><div><h2>「作りたかったけど作らなかった」経験</h2><p class="section-desc">実際の過去の行動について伺います。</p></div></div>
+
+      <div class="q">
+        <div class="q-title">Q3. 過去3ヶ月以内に、「作りたかったけど、自宅では作らなかった／作れなかった料理」はありますか？<span class="required">必須</span></div>
+        <p class="q-help">「ない」「思い出せない」を選んだ方はQ9へお進みください。Q4〜Q8は自動でスキップされます。</p>
+        <div class="options">
+          <label class="choice"><input required type="radio" name="Q3_作れなかった経験" value="ある" data-formrun-required>ある</label>
+          <label class="choice"><input type="radio" name="Q3_作れなかった経験" value="ない">ない</label>
+          <label class="choice"><input type="radio" name="Q3_作れなかった経験" value="思い出せない">思い出せない</label>
+        </div>
+        <div id="skipNote" class="skip-note">Q4〜Q8をスキップします。このまま下のQ9へお進みください。</div>
+      </div>
+
+      <div id="experienceBlock">
+        <div class="q">
+          <div class="q-title">Q4. それはどんな料理でしたか？<span class="required">必須</span></div>
+          <p class="q-help">料理名や「パン」「揚げ物」など、思い出せる範囲で自由に入力してください。</p>
+          <textarea name="Q4_作りたかった料理" data-formrun-required data-conditional-required placeholder="例：○○（※例に引っ張られず、その時の料理を自由に）"></textarea>
+        </div>
+
+        <div class="q">
+          <div class="q-title">Q5. なぜ自宅で作らなかった／作れなかったですか？<span class="required">必須</span></div>
+          <p class="q-help">当てはまるものをすべて選んでください。</p>
+          <div class="options cols2">
+            <label class="choice"><input type="checkbox" name="Q5_作れなかった理由[]" value="油汚れや掃除が面倒" data-cond-check data-formrun-required>油汚れや掃除が面倒</label>
+            <label class="choice"><input type="checkbox" name="Q5_作れなかった理由[]" value="洗い物が面倒" data-cond-check>洗い物が面倒</label>
+            <label class="choice"><input type="checkbox" name="Q5_作れなかった理由[]" value="油の処理が面倒" data-cond-check>油の処理が面倒</label>
+            <label class="choice"><input type="checkbox" name="Q5_作れなかった理由[]" value="匂いが残る" data-cond-check>匂いが残る</label>
+            <label class="choice"><input type="checkbox" name="Q5_作れなかった理由[]" value="煙が出る" data-cond-check>煙が出る</label>
+            <label class="choice"><input type="checkbox" name="Q5_作れなかった理由[]" value="キッチンが狭い" data-cond-check>キッチンが狭い</label>
+            <label class="choice"><input type="checkbox" name="Q5_作れなかった理由[]" value="コンロ・作業台が足りない" data-cond-check>コンロ・作業台が足りない</label>
+            <label class="choice"><input type="checkbox" name="Q5_作れなかった理由[]" value="必要な調理器具がない" data-cond-check>必要な調理器具がない</label>
+            <label class="choice"><input type="checkbox" name="Q5_作れなかった理由[]" value="オーブンなど必要な設備がない" data-cond-check>オーブンなど必要な設備がない</label>
+            <label class="choice"><input type="checkbox" name="Q5_作れなかった理由[]" value="家族・同居人に嫌がられる" data-cond-check>家族・同居人に嫌がられる</label>
+            <label class="choice"><input type="checkbox" name="Q5_作れなかった理由[]" value="キッチンを長時間使えない" data-cond-check>キッチンを長時間使えない</label>
+            <label class="choice"><input type="checkbox" name="Q5_作れなかった理由[]" value="食材を揃えるのが面倒" data-cond-check>食材を揃えるのが面倒</label>
+            <label class="choice"><input type="checkbox" name="Q5_作れなかった理由[]" value="時間がなかった" data-cond-check>時間がなかった</label>
+            <label class="choice"><input type="checkbox" name="Q5_作れなかった理由[]" value="疲れていて料理したくなかった" data-cond-check>疲れていて料理したくなかった</label>
+            <label class="choice"><input type="checkbox" name="Q5_作れなかった理由[]" value="その他" data-other-toggle="q5other" data-cond-check>その他</label>
+          </div>
+          <div id="q5other" class="other-field"><input type="text" name="Q5_作れなかった理由_その他" placeholder="その他の理由を入力"></div>
+        </div>
+
+        <div class="q">
+          <div class="q-title">Q6. その時、最終的にどうしましたか？<span class="required">必須</span></div>
+          <div class="options">
+            <label class="choice"><input type="radio" name="Q6_代替行動" value="スーパー・コンビニの惣菜を買った" data-conditional-required-radio data-formrun-required>スーパー・コンビニの惣菜を買った</label>
+            <label class="choice"><input type="radio" name="Q6_代替行動" value="冷凍食品を食べた">冷凍食品を食べた</label>
+            <label class="choice"><input type="radio" name="Q6_代替行動" value="外食した">外食した</label>
+            <label class="choice"><input type="radio" name="Q6_代替行動" value="デリバリーを頼んだ">デリバリーを頼んだ</label>
+            <label class="choice"><input type="radio" name="Q6_代替行動" value="別の簡単な料理を作った">別の簡単な料理を作った</label>
+            <label class="choice"><input type="radio" name="Q6_代替行動" value="調理方法を変えて妥協した">調理方法を変えて妥協した</label>
+            <label class="choice"><input type="radio" name="Q6_代替行動" value="別の日に作った">別の日に作った</label>
+            <label class="choice"><input type="radio" name="Q6_代替行動" value="家族・友人など別の人に作ってもらった">家族・友人など別の人に作ってもらった</label>
+            <label class="choice"><input type="radio" name="Q6_代替行動" value="結局食べなかった／諦めた">結局食べなかった／諦めた</label>
+            <label class="choice"><input type="radio" name="Q6_代替行動" value="その他" data-other-toggle="q6other">その他</label>
+          </div>
+          <div id="q6other" class="other-field"><input type="text" name="Q6_代替行動_その他" placeholder="その他の行動を入力"></div>
+        </div>
+
+        <div class="q">
+          <div class="q-title">Q7. その代替手段でどのくらい満足しましたか？<span class="required">必須</span></div>
+          <p class="q-help">1＝かなり不満 ／ 5＝完全に満足</p>
+          <div class="scale">
+            <label class="choice"><input type="radio" name="Q7_代替手段満足度" value="1" data-conditional-required-radio data-formrun-required><span>1<small>かなり不満</small></span></label>
+            <label class="choice"><input type="radio" name="Q7_代替手段満足度" value="2">2</label>
+            <label class="choice"><input type="radio" name="Q7_代替手段満足度" value="3">3</label>
+            <label class="choice"><input type="radio" name="Q7_代替手段満足度" value="4">4</label>
+            <label class="choice"><input type="radio" name="Q7_代替手段満足度" value="5"><span>5<small>完全に満足</small></span></label>
+          </div>
+        </div>
+
+        <div class="q">
+          <div class="q-title">Q8. その時、何が満たされませんでしたか？</div>
+          <p class="q-help">なければ空欄でも構いません。</p>
+          <textarea name="Q8_満たされなかったこと" placeholder="例：出来立てを食べたかった、自分好みに作りたかった、料理自体をしたかった など"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="q9section">
+      <div class="section-head"><div class="section-no">03</div><div><h2>料理することの価値</h2><p class="section-desc">食べることだけでなく、「自分で作ること」をどう感じるか教えてください。</p></div></div>
+
+      <div class="q">
+        <div class="q-title">Q9. 次のうち、自分に最も近いものを選んでください。<span class="required">必須</span></div>
+        <div class="options">
+          <label class="choice"><input required type="radio" name="Q9_料理することの価値" value="食事さえできれば、自分で料理する必要はない" data-formrun-required>食事さえできれば、自分で料理する必要
