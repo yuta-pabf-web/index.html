@@ -156,7 +156,6 @@ textarea{min-height:105px;resize:vertical}
   .section h2{font-size:18px}
 }
 </style>
-<script src="https://sdk.form.run/js/v2/formrun.js"></script>
 </head>
 <body>
 <div class="wrap">
