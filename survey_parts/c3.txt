@@ -1,0 +1,114 @@
+はない</label>
+          <label class="choice"><input type="radio" name="Q9_料理することの価値" value="基本的には楽な方法を選びたいが、たまには料理したい">基本的には楽な方法を選びたいが、たまには料理したい</label>
+          <label class="choice"><input type="radio" name="Q9_料理することの価値" value="食べるだけでなく、自分で料理することにも価値を感じる">食べるだけでなく、自分で料理することにも価値を感じる</label>
+          <label class="choice"><input type="radio" name="Q9_料理することの価値" value="作りたいものは、できれば自分で作りたい">作りたいものは、できれば自分で作りたい</label>
+          <label class="choice"><input type="radio" name="Q9_料理することの価値" value="料理そのものが趣味・楽しみの一つ">料理そのものが趣味・楽しみの一つ</label>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div class="section-no">04</div><div><h2>新しい料理場所について</h2><p class="section-desc">ここから、仮のサービスについて率直な印象を教えてください。</p></div></div>
+      <div class="concept">
+        <span class="mini-tag">仮の設定</span><br>
+        仮に、<strong>食材を持って行けば、設備の整ったキッチンで自由に料理でき、洗い物、後処理、清掃などをせずに帰れる場所</strong>が近所にあるとします。
+      </div>
+
+      <div class="q">
+        <div class="q-title">Q10. このような場所を利用してみたいと思いますか？<span class="required">必須</span></div>
+        <div class="scale">
+          <label class="choice"><input required type="radio" name="Q10_基本コンセプト利用意向" value="1" data-formrun-required><span>1<small>使いたくない</small></span></label>
+          <label class="choice"><input type="radio" name="Q10_基本コンセプト利用意向" value="2">2</label>
+          <label class="choice"><input type="radio" name="Q10_基本コンセプト利用意向" value="3">3</label>
+          <label class="choice"><input type="radio" name="Q10_基本コンセプト利用意向" value="4">4</label>
+          <label class="choice"><input type="radio" name="Q10_基本コンセプト利用意向" value="5"><span>5<small>かなり使いたい</small></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-title">Q11. この場所を利用するとしたら、魅力を感じるものを最大3つ選んでください。<span class="required">必須</span></div>
+        <div class="options cols2" id="q11choices">
+          <label class="choice"><input type="checkbox" name="Q11_魅力上位3つ[]" value="家では避けていた揚げ物・匂いの強い料理を作れる" data-formrun-required>家では避けていた揚げ物・匂いの強い料理を作れる</label>
+          <label class="choice"><input type="checkbox" name="Q11_魅力上位3つ[]" value="洗い物・油処理・掃除をしなくていい">洗い物・油処理・掃除をしなくていい</label>
+          <label class="choice"><input type="checkbox" name="Q11_魅力上位3つ[]" value="家より広いキッチンで料理できる">家より広いキッチンで料理できる</label>
+          <label class="choice"><input type="checkbox" name="Q11_魅力上位3つ[]" value="オーブンや大型器具など家にない設備を使える">オーブンや大型器具など家にない設備を使える</label>
+          <label class="choice"><input type="checkbox" name="Q11_魅力上位3つ[]" value="家族・同居人を気にせず自由に料理できる">家族・同居人を気にせず自由に料理できる</label>
+          <label class="choice"><input type="checkbox" name="Q11_魅力上位3つ[]" value="基本調味料や調理器具が揃っている">基本調味料や調理器具が揃っている</label>
+          <label class="choice"><input type="checkbox" name="Q11_魅力上位3つ[]" value="食材がその場で手に入る">食材がその場で手に入る</label>
+          <label class="choice"><input type="checkbox" name="Q11_魅力上位3つ[]" value="その場で料理して食べられる">その場で料理して食べられる</label>
+          <label class="choice"><input type="checkbox" name="Q11_魅力上位3つ[]" value="友人・家族と一緒に料理できる">友人・家族と一緒に料理できる</label>
+          <label class="choice"><input type="checkbox" name="Q11_魅力上位3つ[]" value="人のいる空間で料理できる">人のいる空間で料理できる</label>
+          <label class="choice"><input type="checkbox" name="Q11_魅力上位3つ[]" value="いつもと違う場所で料理を楽しめる">いつもと違う場所で料理を楽しめる</label>
+          <label class="choice"><input type="checkbox" name="Q11_魅力上位3つ[]" value="特に魅力を感じない" data-exclusive="q11">特に魅力を感じない</label>
+          <label class="choice"><input type="checkbox" name="Q11_魅力上位3つ[]" value="その他" data-other-toggle="q11other">その他</label>
+        </div>
+        <div id="q11other" class="other-field"><input type="text" name="Q11_魅力_その他" placeholder="その他の魅力を入力"></div>
+      </div>
+
+      <div class="q">
+        <div class="q-title">Q12. Q11で選んだ中で、最も重要なのはどれですか？<span class="required">必須</span></div>
+        <select name="Q12_最重要価値" id="q12select" required data-formrun-required>
+          <option value="">選択してください</option>
+        </select>
+      </div>
+
+      <div class="q">
+        <div class="q-title">Q13. 「揚げ物や匂いの強い料理を、家を汚さず、後処理せず作って帰れる場所」が自宅近くにあったら使いたいですか？<span class="required">必須</span></div>
+        <div class="options">
+          <label class="choice"><input required type="radio" name="Q13_揚げ物FW利用意向" value="かなり使いたい" data-formrun-required>かなり使いたい</label>
+          <label class="choice"><input type="radio" name="Q13_揚げ物FW利用意向" value="使いたい">使いたい</label>
+          <label class="choice"><input type="radio" name="Q13_揚げ物FW利用意向" value="どちらとも言えない">どちらとも言えない</label>
+          <label class="choice"><input type="radio" name="Q13_揚げ物FW利用意向" value="あまり使わない">あまり使わない</label>
+          <label class="choice"><input type="radio" name="Q13_揚げ物FW利用意向" value="使わない">使わない</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-title">Q14. どんな料理なら、この場所まで行って作りたいと思いますか？</div>
+        <textarea name="Q14_外まで行って作りたい料理" placeholder="自由に入力してください。思いつかなければ空欄でも構いません。"></textarea>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div class="section-no">05</div><div><h2>「自分で料理するレストラン」という別案</h2><p class="section-desc">先ほどとは別の利用シーンとしてお答えください。</p></div></div>
+      <div class="concept">
+        <span class="mini-tag">別の仮説</span><br>
+        <strong>食材・調味料・調理器具がその場にあり、好きな食材を選んで、自分で料理し、その場で食べ、片付けずに帰れる場所</strong>があるとします。
+      </div>
+
+      <div class="q">
+        <div class="q-title">Q15. このような「自分で料理するレストラン」のような場所を利用してみたいですか？<span class="required">必須</span></div>
+        <div class="scale">
+          <label class="choice"><input required type="radio" name="Q15_セルフレストラン利用意向" value="1" data-formrun-required><span>1<small>使いたくない</small></span></label>
+          <label class="choice"><input type="radio" name="Q15_セルフレストラン利用意向" value="2">2</label>
+          <label class="choice"><input type="radio" name="Q15_セルフレストラン利用意向" value="3">3</label>
+          <label class="choice"><input type="radio" name="Q15_セルフレストラン利用意向" value="4">4</label>
+          <label class="choice"><input type="radio" name="Q15_セルフレストラン利用意向" value="5"><span>5<small>かなり使いたい</small></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-title">Q16. どんな時なら利用したいですか？<span class="required">必須</span></div>
+        <p class="q-help">当てはまるものをすべて選んでください。</p>
+        <div class="options cols2">
+          <label class="choice"><input type="checkbox" name="Q16_セルフレストラン利用場面[]" value="普段の夕食" data-formrun-required>普段の夕食</label>
+          <label class="choice"><input type="checkbox" name="Q16_セルフレストラン利用場面[]" value="休日の食事">休日の食事</label>
+          <label class="choice"><input type="checkbox" name="Q16_セルフレストラン利用場面[]" value="外出中の昼食・夕食">外出中の昼食・夕食</label>
+          <label class="choice"><input type="checkbox" name="Q16_セルフレストラン利用場面[]" value="家では作れない料理をしたい時">家では作れない料理をしたい時</label>
+          <label class="choice"><input type="checkbox" name="Q16_セルフレストラン利用場面[]" value="友人・恋人・家族と料理したい時">友人・恋人・家族と料理したい時</label>
+          <label class="choice"><input type="checkbox" name="Q16_セルフレストラン利用場面[]" value="料理を趣味として楽しみたい時">料理を趣味として楽しみたい時</label>
+          <label class="choice"><input type="checkbox" name="Q16_セルフレストラン利用場面[]" value="イベント・記念日">イベント・記念日</label>
+          <label class="choice"><input type="checkbox" name="Q16_セルフレストラン利用場面[]" value="作り置きをしたい時">作り置きをしたい時</label>
+          <label class="choice"><input type="checkbox" name="Q16_セルフレストラン利用場面[]" value="特に利用したい場面はない" data-exclusive="q16">特に利用したい場面はない</label>
+          <label class="choice"><input type="checkbox" name="Q16_セルフレストラン利用場面[]" value="その他" data-other-toggle="q16other">その他</label>
+        </div>
+        <div id="q16other" class="other-field"><input type="text" name="Q16_利用場面_その他" placeholder="その他の場面を入力"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div class="section-no">06</div><div><h2>食材の準備について</h2><p class="section-desc">「どこまで用意されていたら、わざわざ行こうと思うか」を教えてください。</p></div></div>
+
+      <div class="q">
+        <div class="q-title">Q17. 次のうち、どのレベルから「行ってみたい」と思いますか？<span class="required">必須</span></div>
+    
