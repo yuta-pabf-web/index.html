@@ -1,0 +1,149 @@
+か？<span class="required">必須</span></div>
+        <p class="q-help">当てはまるものをすべて選んでください。</p>
+        <div class="options cols2">
+          <label class="choice"><input type="checkbox" name="Q23_使わない場面[]" value="そもそも利用する理由を感じない" data-formrun-required>そもそも利用する理由を感じない</label>
+          <label class="choice"><input type="checkbox" name="Q23_使わない場面[]" value="疲れている時">疲れている時</label>
+          <label class="choice"><input type="checkbox" name="Q23_使わない場面[]" value="料理自体をしたくない時">料理自体をしたくない時</label>
+          <label class="choice"><input type="checkbox" name="Q23_使わない場面[]" value="急いでいる時">急いでいる時</label>
+          <label class="choice"><input type="checkbox" name="Q23_使わない場面[]" value="簡単な料理で十分な時">簡単な料理で十分な時</label>
+          <label class="choice"><input type="checkbox" name="Q23_使わない場面[]" value="一人で食べるだけの時">一人で食べるだけの時</label>
+          <label class="choice"><input type="checkbox" name="Q23_使わない場面[]" value="移動が面倒な時">移動が面倒な時</label>
+          <label class="choice"><input type="checkbox" name="Q23_使わない場面[]" value="食材準備が面倒な時">食材準備が面倒な時</label>
+          <label class="choice"><input type="checkbox" name="Q23_使わない場面[]" value="料金がかかる時">料金がかかる時</label>
+          <label class="choice"><input type="checkbox" name="Q23_使わない場面[]" value="予約が必要な時">予約が必要な時</label>
+          <label class="choice"><input type="checkbox" name="Q23_使わない場面[]" value="その他" data-other-toggle="q23other">その他</label>
+        </div>
+        <div id="q23other" class="other-field"><input type="text" name="Q23_使わない場面_その他" placeholder="その他の場面を入力"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div class="section-no">09</div><div><h2>最後に、あなたについて</h2><p class="section-desc">回答を属性別に比較するために使用します。</p></div></div>
+
+      <div class="q">
+        <div class="q-title">Q24. 現在の住まいに最も近いものは？<span class="required">必須</span></div>
+        <div class="options cols2">
+          <label class="choice"><input required type="radio" name="Q24_住まい" value="一人暮らし" data-formrun-required>一人暮らし</label>
+          <label class="choice"><input type="radio" name="Q24_住まい" value="実家暮らし">実家暮らし</label>
+          <label class="choice"><input type="radio" name="Q24_住まい" value="パートナーと同居">パートナーと同居</label>
+          <label class="choice"><input type="radio" name="Q24_住まい" value="子どもを含む家族と同居">子どもを含む家族と同居</label>
+          <label class="choice"><input type="radio" name="Q24_住まい" value="その他" data-other-toggle="q24other">その他</label>
+        </div>
+        <div id="q24other" class="other-field"><input type="text" name="Q24_住まい_その他" placeholder="その他の住まい方を入力"></div>
+      </div>
+
+      <div class="q">
+        <div class="q-title">Q25. 年代を教えてください。<span class="required">必須</span></div>
+        <div class="options cols2">
+          <label class="choice"><input required type="radio" name="Q25_年代" value="10代" data-formrun-required>10代</label>
+          <label class="choice"><input type="radio" name="Q25_年代" value="20代">20代</label>
+          <label class="choice"><input type="radio" name="Q25_年代" value="30代">30代</label>
+          <label class="choice"><input type="radio" name="Q25_年代" value="40代">40代</label>
+          <label class="choice"><input type="radio" name="Q25_年代" value="50代">50代</label>
+          <label class="choice"><input type="radio" name="Q25_年代" value="60代以上">60代以上</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-title">Q26. 普段、料理する時は何人分を作ることが多いですか？<span class="required">必須</span></div>
+        <div class="options">
+          <label class="choice"><input required type="radio" name="Q26_普段作る人数" value="1人分" data-formrun-required>1人分</label>
+          <label class="choice"><input type="radio" name="Q26_普段作る人数" value="2人分">2人分</label>
+          <label class="choice"><input type="radio" name="Q26_普段作る人数" value="3〜4人分">3〜4人分</label>
+          <label class="choice"><input type="radio" name="Q26_普段作る人数" value="5人以上">5人以上</label>
+          <label class="choice"><input type="radio" name="Q26_普段作る人数" value="その他" data-other-toggle="q26other">その他</label>
+        </div>
+        <div id="q26other" class="other-field"><input type="text" name="Q26_人数_その他" placeholder="その他を入力"></div>
+      </div>
+
+      <div class="q">
+        <div class="q-title">Q27. 今後のヒアリング・実証実験について</div>
+        <div class="contact-box">
+          <label class="choice contact-toggle">
+            <input id="contactOptin" type="checkbox" name="Q27_今後の通知希望" value="希望する" checked>
+            今後、ヒアリングや実証実験の際に通知を希望する
+          </label>
+          <div id="emailBlock" style="margin-top:12px">
+            <label for="contactEmail" style="display:block;font-size:12px;color:var(--muted);margin-bottom:5px">メールアドレス</label>
+            <input id="contactEmail" type="email" name="Q27_連絡先メール" placeholder="example@email.com" required data-formrun-type="email" data-formrun-required>
+            <p class="q-help" style="margin-top:7px">入力いただいたメールアドレスは、今後のヒアリング・実証実験等の案内に使用します。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="submit-area">
+        <button class="submit-btn" id="submitBtn" type="submit" data-formrun-submitting-text="送信中…">回答を送信する</button>
+        <p class="privacy">送信前に入力内容をご確認ください。</p>
+      </div>
+    </section>
+  </form>
+
+  <div class="thanks" id="thanks" role="status" aria-live="polite">
+    <div class="check">✓</div>
+    <div class="mini-tag">送信完了</div>
+    <h2>アンケートの送信が完了しました</h2>
+    <p>ご回答ありがとうございました。<br>いただいた内容は、今後のサービス検証に活用させていただきます。</p>
+    <button type="button" class="submit-btn" id="backToTopBtn" style="margin-top:24px;min-width:180px;">最初の画面に戻る</button>
+  </div>
+
+  <iframe name="submissionFrame" id="submissionFrame" class="hidden" title="submission"></iframe>
+  <div class="footer">PABF KITCHEN / Research Survey</div>
+</div>
+
+<script>
+(() => {
+  const form = document.getElementById('surveyForm');
+  const endpointPlaceholder = 'https://form.run/api/v1/r/h60v6t6gd4eq23xvf23z20xy';
+  const experienceBlock = document.getElementById('experienceBlock');
+  const skipNote = document.getElementById('skipNote');
+  const errorBanner = document.getElementById('errorBanner');
+  const progressBar = document.getElementById('progressBar');
+  const progressText = document.getElementById('progressText');
+  const submitBtn = document.getElementById('submitBtn');
+  const submissionFrame = document.getElementById('submissionFrame');
+  let submitting = false;
+
+  // Show/hide "other" fields
+  function updateOtherFields() {
+    document.querySelectorAll('[data-other-toggle]').forEach(el => {
+      const target = document.getElementById(el.dataset.otherToggle);
+      if (!target) return;
+      const active = el.type === 'checkbox' ? el.checked : (document.querySelector(`input[name="${CSS.escape(el.name)}"]:checked`) === el);
+      target.classList.toggle('show', active);
+      target.querySelectorAll('input,textarea').forEach(i => {
+        i.disabled = !active;
+        if (!active) i.value = '';
+      });
+    });
+  }
+
+  // Exclusive options ("特にない" etc.)
+  document.querySelectorAll('[data-exclusive]').forEach(ex => {
+    ex.addEventListener('change', () => {
+      if (!ex.checked) return;
+      const groupName = ex.name;
+      document.querySelectorAll(`input[name="${CSS.escape(groupName)}"]`).forEach(x => {
+        if (x !== ex) x.checked = false;
+      });
+      updateOtherFields();
+      refreshQ12();
+      updateProgress();
+    });
+  });
+  document.querySelectorAll('input[type=checkbox]').forEach(cb => {
+    cb.addEventListener('change', () => {
+      if (!cb.dataset.exclusive) {
+        const ex = document.querySelector(`input[name="${CSS.escape(cb.name)}"][data-exclusive]`);
+        if (ex && cb.checked) ex.checked = false;
+      }
+    });
+  });
+
+  // Q3 branching
+  function updateExperienceBranch() {
+    const v = form.querySelector('input[name="Q3_作れなかった経験"]:checked')?.value;
+    const show = v === 'ある';
+    experienceBlock.classList.toggle('hidden', !show);
+    skipNote.classList.toggle('show', !!v && !show);
+    experienceBlock.querySelectorAll('input,textarea,select').forEach(el => {
+      el.di
