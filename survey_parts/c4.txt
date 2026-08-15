@@ -1,0 +1,102 @@
+     <p class="q-help">「ここまで便利なら行く」と思う最も手前の条件を1つ選んでください。</p>
+        <div class="options">
+          <label class="choice"><input required type="radio" name="Q17_食材準備の利用閾値" value="食材はすべて自分で持参でも行きたい" data-formrun-required>食材はすべて自分で持参でも行きたい</label>
+          <label class="choice"><input type="radio" name="Q17_食材準備の利用閾値" value="施設のすぐ近くで食材を買えるなら行きたい">施設のすぐ近く（例：同じ建物・隣接）で食材を買えるなら行きたい</label>
+          <label class="choice"><input type="radio" name="Q17_食材準備の利用閾値" value="施設内で必要な食材を購入できるなら行きたい">施設内で必要な食材を購入できるなら行きたい</label>
+          <label class="choice"><input type="radio" name="Q17_食材準備の利用閾値" value="食材が用意され、使った分だけ料金を払えるなら行きたい">食材が用意され、使った分だけ料金を払えるなら行きたい</label>
+          <label class="choice"><input type="radio" name="Q17_食材準備の利用閾値" value="食材込みの料理セットが用意されているなら行きたい">食材込みの料理セットが用意されているなら行きたい</label>
+          <label class="choice"><input type="radio" name="Q17_食材準備の利用閾値" value="どの条件でも行きたいと思わない">どの条件でも行きたいと思わない</label>
+          <label class="choice"><input type="radio" name="Q17_食材準備の利用閾値" value="その他" data-other-toggle="q17other">その他</label>
+        </div>
+        <div id="q17other" class="other-field"><input type="text" name="Q17_食材準備_その他" placeholder="どの条件なら行きたくなるか自由に入力"></div>
+      </div>
+
+      <div class="q">
+        <div class="q-title">Q18. 「食材をすべて自分で持参」が条件だった場合、利用意向はどう変わりますか？<span class="required">必須</span></div>
+        <div class="options">
+          <label class="choice"><input required type="radio" name="Q18_食材持参の障壁" value="それでも使いたい" data-formrun-required>それでも使いたい</label>
+          <label class="choice"><input type="radio" name="Q18_食材持参の障壁" value="少し利用しづらくなる">少し利用しづらくなる</label>
+          <label class="choice"><input type="radio" name="Q18_食材持参の障壁" value="かなり利用しづらくなる">かなり利用しづらくなる</label>
+          <label class="choice"><input type="radio" name="Q18_食材持参の障壁" value="おそらく使わない">おそらく使わない</label>
+          <label class="choice"><input type="radio" name="Q18_食材持参の障壁" value="その他" data-other-toggle="q18other">その他</label>
+        </div>
+        <div id="q18other" class="other-field"><input type="text" name="Q18_食材持参_その他" placeholder="自由に入力"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div class="section-no">07</div><div><h2>場所・料金・利用条件</h2><p class="section-desc">実際に日常利用する前提でお答えください。</p></div></div>
+
+      <div class="q">
+        <div class="q-title">Q19. 日常的に利用するとしたら、自宅から片道最長何分までなら行けますか？<span class="required">必須</span></div>
+        <div class="options cols2">
+          <label class="choice"><input required type="radio" name="Q19_自宅から最長所要時間" value="5分以内" data-formrun-required>5分以内</label>
+          <label class="choice"><input type="radio" name="Q19_自宅から最長所要時間" value="10分以内">10分以内</label>
+          <label class="choice"><input type="radio" name="Q19_自宅から最長所要時間" value="15分以内">15分以内</label>
+          <label class="choice"><input type="radio" name="Q19_自宅から最長所要時間" value="20分以内">20分以内</label>
+          <label class="choice"><input type="radio" name="Q19_自宅から最長所要時間" value="30分以内">30分以内</label>
+          <label class="choice"><input type="radio" name="Q19_自宅から最長所要時間" value="45分以内">45分以内</label>
+          <label class="choice"><input type="radio" name="Q19_自宅から最長所要時間" value="60分以内">60分以内</label>
+          <label class="choice"><input type="radio" name="Q19_自宅から最長所要時間" value="時間より立地・利用目的次第">時間より立地・利用目的次第</label>
+          <label class="choice"><input type="radio" name="Q19_自宅から最長所要時間" value="その他" data-other-toggle="q19other">その他（自由記述）</label>
+        </div>
+        <div id="q19other" class="other-field"><input type="text" name="Q19_最長所要時間_その他" placeholder="例：自転車で12分まで／休日なら30分、平日は10分 など"></div>
+      </div>
+
+      <div class="q">
+        <div class="q-title">Q20. 最も使いやすい場所はどこですか？<span class="required">必須</span></div>
+        <div class="options cols2">
+          <label class="choice"><input required type="radio" name="Q20_最も使いやすい立地" value="自宅の近く" data-formrun-required>自宅の近く</label>
+          <label class="choice"><input type="radio" name="Q20_最も使いやすい立地" value="スーパーの近く・中">スーパーの近く・中</label>
+          <label class="choice"><input type="radio" name="Q20_最も使いやすい立地" value="駅の近く">駅の近く</label>
+          <label class="choice"><input type="radio" name="Q20_最も使いやすい立地" value="職場・学校の近く">職場・学校の近く</label>
+          <label class="choice"><input type="radio" name="Q20_最も使いやすい立地" value="商業施設の中">商業施設の中</label>
+          <label class="choice"><input type="radio" name="Q20_最も使いやすい立地" value="その他" data-other-toggle="q20other">その他</label>
+        </div>
+        <div id="q20other" class="other-field"><input type="text" name="Q20_立地_その他" placeholder="その他の立地を入力"></div>
+      </div>
+
+      <div class="q">
+        <div class="q-title">Q21. 1回使うとしたら、現時点で許容できる料金に最も近いものは？<span class="required">必須</span></div>
+        <p class="q-help">実際の価格を決める質問ではなく、現時点での感覚を教えてください。</p>
+        <div class="options cols2">
+          <label class="choice"><input required type="radio" name="Q21_許容料金" value="無料でないと使わない" data-formrun-required>無料でないと使わない</label>
+          <label class="choice"><input type="radio" name="Q21_許容料金" value="300円">300円</label>
+          <label class="choice"><input type="radio" name="Q21_許容料金" value="500円">500円</label>
+          <label class="choice"><input type="radio" name="Q21_許容料金" value="700円">700円</label>
+          <label class="choice"><input type="radio" name="Q21_許容料金" value="1,000円">1,000円</label>
+          <label class="choice"><input type="radio" name="Q21_許容料金" value="1,500円">1,500円</label>
+          <label class="choice"><input type="radio" name="Q21_許容料金" value="2,000円以上">2,000円以上</label>
+          <label class="choice"><input type="radio" name="Q21_許容料金" value="その他" data-other-toggle="q21other">その他</label>
+        </div>
+        <div id="q21other" class="other-field"><input type="text" name="Q21_料金_その他" placeholder="許容できる金額や条件を入力"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div class="section-no">08</div><div><h2>「ないと使わない」条件</h2><p class="section-desc">魅力ではなく、利用の最低条件を確認します。</p></div></div>
+
+      <div class="q">
+        <div class="q-title">Q22. 次のうち、「これがなかったら利用しない」と思うものをすべて選んでください。<span class="required">必須</span></div>
+        <p class="q-help">複数選択可・上限なし。</p>
+        <div class="options cols2">
+          <label class="choice"><input type="checkbox" name="Q22_Must条件[]" value="自宅から近い" data-formrun-required>自宅から近い</label>
+          <label class="choice"><input type="checkbox" name="Q22_Must条件[]" value="安い">安い</label>
+          <label class="choice"><input type="checkbox" name="Q22_Must条件[]" value="洗い物不要">洗い物不要</label>
+          <label class="choice"><input type="checkbox" name="Q22_Must条件[]" value="油処理・掃除不要">油処理・掃除不要</label>
+          <label class="choice"><input type="checkbox" name="Q22_Must条件[]" value="広い調理スペース">広い調理スペース</label>
+          <label class="choice"><input type="checkbox" name="Q22_Must条件[]" value="必要な調理器具・設備">必要な調理器具・設備</label>
+          <label class="choice"><input type="checkbox" name="Q22_Must条件[]" value="基本調味料">基本調味料</label>
+          <label class="choice"><input type="checkbox" name="Q22_Must条件[]" value="食材を現地で入手できる">食材を現地で入手できる</label>
+          <label class="choice"><input type="checkbox" name="Q22_Must条件[]" value="予約が簡単">予約が簡単</label>
+          <label class="choice"><input type="checkbox" name="Q22_Must条件[]" value="1人で利用できる">1人で利用できる</label>
+          <label class="choice"><input type="checkbox" name="Q22_Must条件[]" value="複数人で利用できる">複数人で利用できる</label>
+          <label class="choice"><input type="checkbox" name="Q22_Must条件[]" value="食べるスペース">食べるスペース</label>
+          <label class="choice"><input type="checkbox" name="Q22_Must条件[]" value="特にない" data-exclusive="q22">特にない</label>
+          <label class="choice"><input type="checkbox" name="Q22_Must条件[]" value="その他" data-other-toggle="q22other">その他</label>
+        </div>
+        <div id="q22other" class="other-field"><input type="text" name="Q22_Must条件_その他" placeholder="その他の必須条件を入力"></div>
+      </div>
+
+      <div class="q">
+        <div class="q-title">Q23. 逆に、このような場所を使わず、惣菜・外食・自宅などを選ぶのはどんな時だと思います
