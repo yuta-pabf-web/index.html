@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>料理・自炊に関するアンケート</title>
+<style>
+:root{
+  --bg:#f7f4f1;
+  --paper:#fffdfb;
+  --ink:#2b2928;
+  --muted:#746f6b;
+  --line:#e7ded8;
+  --brand:#c9847d;
+  --brand-dark:#a85e58;
+  --brand-soft:#f5e6e2;
+  --accent:#8aa58d;
+  --warn:#a86557;
+  --shadow:0 18px 50px rgba(73,54,45,.08);
+  --radius:22px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 0%, rgba(201,132,125,.12), transparent 28rem),
+    radial-gradient(circle at 90% 25%, rgba(138,165,141,.10), transparent 26rem),
+    var(--bg);
+  line-height:1.7;
+}
+.wrap{width:min(920px,calc(100% - 28px));margin:0 auto 100px}
+.hero{
+  padding:56px 0 24px;
+  text-align:center;
+}
+.logo-mark{
+  width:72px;height:72px;margin:0 auto 16px;border-radius:24px;
+  background:var(--brand-soft);display:grid;place-items:center;
+  font-size:32px;box-shadow:var(--shadow)
+}
+.hero h1{font-size:clamp(26px,5vw,40px);margin:0 0 8px;letter-spacing:.02em}
+.hero p{margin:0;color:var(--muted);font-size:14px}
+.hero .note{margin-top:12px;font-size:13px}
+.progress-shell{
+  position:sticky;top:0;z-index:20;
+  background:rgba(247,244,241,.88);backdrop-filter:blur(14px);
+  padding:12px 0 10px;margin-bottom:8px
+}
+.progress-row{display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:12px;color:var(--muted)}
+.progress{height:8px;border-radius:99px;background:#e9e2dd;overflow:hidden;margin-top:8px}
+.progress>div{height:100%;width:0;background:linear-gradient(90deg,var(--brand),#d8a49e);transition:width .25s ease}
+.section{
+  background:var(--paper);border:1px solid rgba(231,222,216,.95);
+  border-radius:var(--radius);box-shadow:var(--shadow);
+  padding:30px;margin:18px 0
+}
+.section-head{display:flex;gap:14px;align-items:flex-start;margin-bottom:24px}
+.section-no{
+  flex:0 0 auto;width:34px;height:34px;border-radius:12px;background:var(--brand-soft);
+  color:var(--brand-dark);display:grid;place-items:center;font-weight:800;font-size:13px
+}
+.section h2{font-size:20px;margin:1px 0 4px}
+.section-desc{color:var(--muted);font-size:13px;margin:0}
+.q{
+  padding:22px 0;border-top:1px solid var(--line)
+}
+.q:first-of-type{border-top:0;padding-top:0}
+.q-title{font-weight:800;font-size:16px;margin-bottom:5px}
+.q-help{font-size:12px;color:var(--muted);margin:0 0 12px}
+.required{color:var(--brand-dark);font-size:11px;margin-left:7px;background:var(--brand-soft);padding:2px 7px;border-radius:99px}
+.options{display:grid;gap:9px}
+.options.cols2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.choice{
+  display:flex;align-items:flex-start;gap:10px;padding:12px 14px;
+  border:1px solid var(--line);border-radius:14px;background:white;
+  cursor:pointer;transition:.16s ease;user-select:none
+}
+.choice:hover{border-color:#d8beb8;background:#fffafa}
+.choice:has(input:checked){border-color:var(--brand);background:#fff7f5;box-shadow:0 0 0 2px rgba(201,132,125,.08)}
+.choice input{margin-top:4px;accent-color:var(--brand);flex:0 0 auto}
+input[type=text],input[type=email],input[type=number],textarea,select{
+  width:100%;font:inherit;color:var(--ink);background:#fff;
+  border:1px solid var(--line);border-radius:13px;padding:12px 14px;outline:none;
+  transition:.16s ease
+}
+input:focus,textarea:focus,select:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(201,132,125,.11)}
+textarea{min-height:105px;resize:vertical}
+.other-field{display:none;margin-top:10px}
+.other-field.show{display:block}
+.scale{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:8px
+}
+.scale .choice{justify-content:center;align-items:center;text-align:center;padding:12px 6px}
+.scale small{display:block;color:var(--muted);font-size:10px;margin-top:3px}
+.skip-note{
+  display:none;margin-top:12px;padding:10px 12px;border-radius:12px;
+  background:#f2f6f2;color:#506955;font-size:12px
+}
+.skip-note.show{display:block}
+.concept{
+  border:1px solid #ead5d0;background:linear-gradient(135deg,#fff8f6,#fff);
+  border-radius:17px;padding:17px 18px;margin:8px 0 20px
+}
+.concept strong{color:var(--brand-dark)}
+.mini-tag{
+  display:inline-block;font-size:11px;font-weight:800;letter-spacing:.06em;
+  padding:4px 8px;border-radius:99px;background:var(--brand-soft);color:var(--brand-dark);
+  margin-bottom:7px
+}
+.contact-box{
+  padding:16px;border-radius:16px;background:#faf7f5;border:1px solid var(--line)
+}
+.contact-toggle{font-weight:700}
+.submit-area{text-align:center;padding-top:10px}
+.submit-btn{
+  appearance:none;border:0;border-radius:16px;padding:15px 34px;
+  min-width:220px;background:var(--brand);color:white;font-weight:800;font-size:16px;
+  cursor:pointer;box-shadow:0 10px 24px rgba(168,94,88,.22);transition:.16s ease
+}
+.submit-btn:hover{transform:translateY(-1px);background:var(--brand-dark)}
+.submit-btn:disabled{opacity:.55;cursor:not-allowed;transform:none}
+.privacy{font-size:11px;color:var(--muted);margin-top:12px}
+.error-banner{
+  display:none;padding:12px 14px;border-radius:13px;background:#fff1ed;color:#8c493e;
+  border:1px solid #ebc8bf;margin:0 0 16px;font-size:13px
+}
+.error-banner.show{display:block}
+.hidden{display:none!important}
+.thanks{
+  display:none;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:50px 28px;text-align:center;margin-top:30px
+}
+.thanks.show{display:block}
+.thanks .check{width:64px;height:64px;border-radius:50%;background:#eaf3eb;color:#52735b;display:grid;place-items:center;margin:0 auto 16px;font-size:30px}
+.thanks h2{font-size:26px;margin:0 0 8px}
+.thanks p{color:var(--muted);margin:0}
+#setupPanel{
+  display:none;background:#202020;color:#fff;padding:24px;border-radius:18px;margin:20px 0
+}
+#setupPanel.show{display:block}
+#setupPanel input{margin:8px 0;background:#fff}
+#setupPanel button{border:0;border-radius:10px;padding:10px 14px;cursor:pointer;font-weight:700;margin-right:8px}
+#setupPanel .small{font-size:12px;color:#ccc}
+.footer{text-align:center;color:#9a918c;font-size:11px;margin-top:26px}
+@media(max-width:640px){
+  .wrap{width:min(100% - 20px,920px)}
+  .hero{padding-top:34px}
+  .section{padding:22px 17px;border-radius:18px}
+  .options.cols2{grid-template-columns:1fr}
+  .scale{gap:5px}
+  .scale .choice{font-size:13px}
+  .section h2{font-size:18px}
+}
+</style>
+<script src="https://sdk.form.run/js/v2/formrun.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="logo-mark">🍳</div>
+    <h1>料理・自炊に関するアンケート</h1>
+    <p>普段の料理や「作りたかったけど作らなかった」経験について教えてください。</p>
+    <p class="note">所要時間：約7〜10分｜回答は原則匿名です（最後に希望者のみ連絡先入力）</p>
+  </header>
+  <div class="progress-shell">
+    <div class="progress-row"><span>回答状況</span><span id="progressText">0%</span></div>
+    <div class="progress"><div id="progressBar"></div></div>
+  </div>
+
+  <form id="surveyForm" class="formrun" action="https://form.run/api/v1/r/h60v6t6gd4eq23xvf23z20xy" method="post" target="submissionFrame" novalidate>
+    <input type="hidden" name="アンケートバージョン" value="PABF_C_2026-08">
+    <div class="_formrun_gotcha" aria-hidden="true" style="position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;">
+      <label for="_formrun_gotcha">この項目は入力しないでください</label>
+      <input type="text" name="_formrun_gotcha" id="_formrun_gotcha" tabindex="-1" autocomplete="off">
+    </div>
+    <div id="errorBanner" class="error-banner">未回答の必須項目があります。赤く表示された箇所をご確認ください。</div>
+
+    <section class="section">
+      <div class="section-head"><div class="section-no">01</div><div><h2>普段の料理について</h2><p class="section-desc">まず、普段どのくらい料理をしているか教えてください。</p></div></div>
+
+      <div class="q" data-required-group="Q1">
+        <div class="q-title">Q1. 普段どのくらい自分で料理しますか？<span class="required">必須</span></div>
+        <
