@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="8月24日開催。家では作りづらい料理を、後処理を気にせず自由に作れる「パフキッチン」第2回実証実験。参加無料・事前申込制。">
 <title>パフキッチン 第2回実証実験｜8月24日</title>
-<script src="https://sdk.form.run/js/v2/formrun.js"></script>
 <style>
 :root{--ink:#302827;--muted:#746966;--rose:#b96663;--roseD:#96514f;--coral:#e7aaa0;--cream:#fff8f5;--soft:#f8ece8;--line:#ead8d3;--white:#fff;--shadow:0 14px 46px rgba(62,38,31,.08)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;background:#fff;line-height:1.75}
@@ -28,6 +27,7 @@ section{padding:76px 0}.section-soft{background:var(--cream)}.kicker{color:var(-
 input[type=text],input[type=email],textarea,select{width:100%;border:1px solid #d9cbc7;border-radius:11px;padding:12px 13px;background:#fff;font:inherit;color:inherit;outline:none}textarea{min-height:100px;resize:vertical}input:focus,textarea:focus,select:focus{border-color:var(--rose);box-shadow:0 0 0 3px rgba(185,102,99,.12)}
 .options{display:grid;gap:8px}.cols{grid-template-columns:repeat(2,minmax(0,1fr))}label.choice{display:flex;align-items:flex-start;gap:9px;border:1px solid #eadedb;border-radius:11px;padding:10px 11px;cursor:pointer;font-size:14px}label.choice:hover{background:#fff9f7}input[type=radio],input[type=checkbox]{margin-top:5px;accent-color:var(--rose)}.checkline{display:flex;align-items:flex-start;gap:9px;font-size:14px}
 .submit button{width:100%;border:0;background:var(--rose);color:#fff;font-size:17px;font-weight:900;border-radius:14px;padding:16px;cursor:pointer}.submit .small{font-size:11px;color:var(--muted);text-align:center;margin-top:9px}
+.error-banner{display:none;margin:0 0 14px;padding:12px 14px;border-radius:11px;background:#fff0ee;border:1px solid #e8b9b2;color:#9a4944;font-size:13px;font-weight:700}.error-banner.show{display:block}.q.invalid{outline:2px solid rgba(185,102,99,.30);outline-offset:2px}.submit button:disabled{opacity:.68;cursor:not-allowed}.hidden-frame{display:none;width:0;height:0;border:0}
 footer{padding:34px 0 50px;text-align:center;color:#9c8d89;font-size:12px;border-top:1px solid var(--line)}
 @media(max-width:760px){.hero{padding-top:43px}.hero-grid{grid-template-columns:1fr;gap:29px}.hero-card{transform:none}.cards{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}.target{grid-template-columns:1fr}.cols{grid-template-columns:1fr}section{padding:57px 0}}
 @media(max-width:460px){.flow{grid-template-columns:1fr}.nav .logo small{display:none}.date{font-size:51px}}
@@ -114,22 +114,23 @@ footer{padding:34px 0 50px;text-align:center;color:#9c8d89;font-size:12px;border
   <p class="desc">開催日は8月24日（月）で確定しています。会場・正式時間は調整中です。スーパー併設・隣接を優先し、確定次第メールでご案内します。</p>
 
   <div class="formbox">
-  <form class="formrun" action="https://form.run/api/v1/r/h60v6t6gd4eq23xvf23z20xy" method="post">
+  <form id="entryForm" action="https://form.run/api/v1/r/h60v6t6gd4eq23xvf23z20xy" method="post" target="submissionFrame" novalidate>
     <input type="hidden" name="データ種別" value="第2回実証実験_参加申込">
     <input type="hidden" name="開催日" value="2026-08-24">
-    <input type="hidden" name="_formrun_gotcha" style="display:none">
+    <div aria-hidden="true" style="position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap"><label for="_formrun_gotcha">この項目は入力しないでください</label><input type="text" name="_formrun_gotcha" id="_formrun_gotcha" tabindex="-1" autocomplete="off"></div>
+    <div id="formError" class="error-banner" role="alert">未入力または入力内容に問題があります。赤く表示された項目をご確認ください。</div>
 
-    <div class="q"><h3>お名前またはニックネーム<span class="req">必須</span></h3><input type="text" name="申込_名前" required data-formrun-required></div>
+    <div class="q"><h3>お名前またはニックネーム<span class="req">必須</span></h3><input type="text" name="申込_名前" required></div>
 
     <div class="q"><h3>年代<span class="req">必須</span></h3><div class="options cols">
-      <label class="choice"><input type="radio" name="申込_年代" value="10代" required data-formrun-required>10代</label>
+      <label class="choice"><input type="radio" name="申込_年代" value="10代" required>10代</label>
       <label class="choice"><input type="radio" name="申込_年代" value="20代">20代</label>
       <label class="choice"><input type="radio" name="申込_年代" value="30代">30代</label>
       <label class="choice"><input type="radio" name="申込_年代" value="40代以上">40代以上</label>
     </div></div>
 
     <div class="q"><h3>現在の住まい<span class="req">必須</span></h3><div class="options cols">
-      <label class="choice"><input type="radio" name="申込_住まい" value="一人暮らし" required data-formrun-required>一人暮らし</label>
+      <label class="choice"><input type="radio" name="申込_住まい" value="一人暮らし" required>一人暮らし</label>
       <label class="choice"><input type="radio" name="申込_住まい" value="実家暮らし">実家暮らし</label>
       <label class="choice"><input type="radio" name="申込_住まい" value="パートナーと同居">パートナーと同居</label>
       <label class="choice"><input type="radio" name="申込_住まい" value="家族と同居">家族と同居</label>
@@ -144,13 +145,13 @@ footer{padding:34px 0 50px;text-align:center;color:#9c8d89;font-size:12px;border
     </div></div>
 
     <div class="q"><h3>普段どのくらい料理しますか？<span class="req">必須</span></h3>
-      <select name="申込_料理頻度" required data-formrun-required><option value="">選択してください</option><option>ほぼ毎日</option><option>週3〜5回</option><option>週1〜2回</option><option>月に数回</option><option>ほとんどしない</option></select>
+      <select name="申込_料理頻度" required><option value="">選択してください</option><option>ほぼ毎日</option><option>週3〜5回</option><option>週1〜2回</option><option>月に数回</option><option>ほとんどしない</option></select>
     </div>
 
-    <div class="q"><h3>8月24日に、どんな料理を作ってみたいですか？<span class="req">必須</span></h3><p class="help">例：唐揚げ、天ぷら、パン、ケーキ、オーブン料理など。まだ決まっていなければ「未定」でも大丈夫です。</p><textarea name="申込_作りたい料理" required data-formrun-required></textarea></div>
+    <div class="q"><h3>8月24日に、どんな料理を作ってみたいですか？<span class="req">必須</span></h3><p class="help">例：唐揚げ、天ぷら、パン、ケーキ、オーブン料理など。まだ決まっていなければ「未定」でも大丈夫です。</p><textarea name="申込_作りたい料理" required></textarea></div>
 
     <div class="q"><h3>その料理を自宅で作りづらい理由はありますか？<span class="req">必須</span></h3><p class="help">当てはまるものをすべて選んでください。</p><div class="options cols">
-      <label class="choice"><input type="checkbox" name="申込_自宅で作りづらい理由[]" value="油汚れ・掃除が面倒" data-formrun-required>油汚れ・掃除が面倒</label>
+      <label class="choice"><input type="checkbox" name="申込_自宅で作りづらい理由[]" value="油汚れ・掃除が面倒">油汚れ・掃除が面倒</label>
       <label class="choice"><input type="checkbox" name="申込_自宅で作りづらい理由[]" value="油の処理が面倒">油の処理が面倒</label>
       <label class="choice"><input type="checkbox" name="申込_自宅で作りづらい理由[]" value="洗い物が多い">洗い物が多い</label>
       <label class="choice"><input type="checkbox" name="申込_自宅で作りづらい理由[]" value="匂い・煙が気になる">匂い・煙が気になる</label>
@@ -163,24 +164,123 @@ footer{padding:34px 0 50px;text-align:center;color:#9c8d89;font-size:12px;border
     </div><input style="margin-top:10px" type="text" name="申込_自宅で作りづらい理由_その他" placeholder="その他があれば入力"></div>
 
     <div class="q"><h3>参加しやすい時間帯<span class="req">必須</span></h3><p class="help">会場確定後、この回答を参考に複数の利用枠を設定します。複数選択できます。</p><div class="options cols">
-      <label class="choice"><input type="checkbox" name="申込_希望時間[]" value="10:00〜13:00" data-formrun-required>10:00〜13:00</label>
+      <label class="choice"><input type="checkbox" name="申込_希望時間[]" value="10:00〜13:00">10:00〜13:00</label>
       <label class="choice"><input type="checkbox" name="申込_希望時間[]" value="13:00〜16:00">13:00〜16:00</label>
       <label class="choice"><input type="checkbox" name="申込_希望時間[]" value="16:00〜19:00">16:00〜19:00</label>
       <label class="choice"><input type="checkbox" name="申込_希望時間[]" value="19:00〜21:30">19:00〜21:30</label>
       <label class="choice"><input type="checkbox" name="申込_希望時間[]" value="どの時間帯でも可">どの時間帯でも可</label>
     </div></div>
 
-    <div class="q"><h3>連絡用メールアドレス<span class="req">必須</span></h3><p class="help">会場・時間帯の確定連絡、当日の案内にのみ使用します。</p><input type="email" name="申込_メール" required data-formrun-type="email" data-formrun-required placeholder="example@email.com"></div>
+    <div class="q"><h3>連絡用メールアドレス<span class="req">必須</span></h3><p class="help">会場・時間帯の確定連絡、当日の案内にのみ使用します。</p><input type="email" name="申込_メール" required placeholder="example@email.com"></div>
 
-    <div class="q"><label class="checkline"><input type="checkbox" name="申込_確認" value="確認済み" required data-formrun-required><span>会場・正式時間は後日確定すること、食材は原則各自で用意すること、実証後の簡単なアンケートに協力することを確認しました。</span></label></div>
+    <div class="q"><label class="checkline"><input type="checkbox" name="申込_確認" value="確認済み" required><span>会場・正式時間は後日確定すること、食材は原則各自で用意すること、実証後の簡単なアンケートに協力することを確認しました。</span></label></div>
 
-    <div class="submit"><button type="submit" data-formrun-submitting-text="送信中…">8月24日の参加を申し込む</button><div class="small">申込内容を確認後、会場・時間確定時にメールでご連絡します。</div></div>
+    <div class="submit"><button id="submitBtn" type="submit">8月24日の参加を申し込む</button><div class="small">申込内容を確認後、会場・時間確定時にメールでご連絡します。</div></div>
   </form>
+  <iframe id="submissionFrame" name="submissionFrame" class="hidden-frame" title="申込送信"></iframe>
   </div>
 </div>
 </section>
 </main>
 
 <footer><div class="container">PABF株式会社｜PABF KITCHEN / 第2回実証実験 2026.08.24</div></footer>
+
+<script>
+(() => {
+  const form = document.getElementById('entryForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const frame = document.getElementById('submissionFrame');
+  const errorBanner = document.getElementById('formError');
+  let submitted = false;
+  let timeoutId = null;
+
+  const groupRules = [
+    {name: '申込_自宅で作りづらい理由[]', message: '自宅で作りづらい理由を1つ以上選択してください。'},
+    {name: '申込_希望時間[]', message: '参加しやすい時間帯を1つ以上選択してください。'}
+  ];
+
+  function markInvalid(el) {
+    const q = el && el.closest('.q');
+    if (q) q.classList.add('invalid');
+    return q || el;
+  }
+
+  function clearErrors() {
+    form.querySelectorAll('.q.invalid').forEach(q => q.classList.remove('invalid'));
+    errorBanner.classList.remove('show');
+    errorBanner.textContent = '未入力または入力内容に問題があります。赤く表示された項目をご確認ください。';
+  }
+
+  function validateForm() {
+    clearErrors();
+    let firstBad = null;
+    const messages = [];
+    const requiredNames = ['申込_名前','申込_年代','申込_住まい','申込_料理頻度','申込_作りたい料理','申込_メール','申込_確認'];
+    for (const name of requiredNames) {
+      const els = [...form.querySelectorAll(`[name="${CSS.escape(name)}"]`)];
+      if (!els.length) continue;
+      const type = els[0].type;
+      let ok = true;
+      if (type === 'radio' || type === 'checkbox') ok = els.some(el => el.checked);
+      else ok = els[0].checkValidity() && String(els[0].value || '').trim() !== '';
+      if (!ok) {
+        const bad = markInvalid(els[0]);
+        if (!firstBad) firstBad = bad;
+      }
+    }
+    for (const rule of groupRules) {
+      const els = [...form.querySelectorAll(`[name="${CSS.escape(rule.name)}"]`)];
+      if (!els.some(el => el.checked)) {
+        const bad = markInvalid(els[0]);
+        if (!firstBad) firstBad = bad;
+        messages.push(rule.message);
+      }
+    }
+    const email = form.querySelector('[name="申込_メール"]');
+    if (email && email.value && !email.checkValidity()) {
+      const bad = markInvalid(email);
+      if (!firstBad) firstBad = bad;
+      messages.push('メールアドレスの形式をご確認ください。');
+    }
+    if (firstBad) {
+      errorBanner.textContent = messages.length ? messages[0] : '未入力の必須項目があります。赤く表示された項目をご確認ください。';
+      errorBanner.classList.add('show');
+      firstBad.scrollIntoView({behavior:'smooth', block:'center'});
+      return false;
+    }
+    return true;
+  }
+
+  form.addEventListener('input', e => e.target.closest('.q')?.classList.remove('invalid'));
+  form.addEventListener('change', e => e.target.closest('.q')?.classList.remove('invalid'));
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (submitted) return;
+    if (!validateForm()) return;
+    submitted = true;
+    submitBtn.disabled = true;
+    submitBtn.textContent = '送信中…';
+    errorBanner.classList.remove('show');
+    timeoutId = setTimeout(() => {
+      if (!submitted) return;
+      submitted = false;
+      submitBtn.disabled = false;
+      submitBtn.textContent = '8月24日の参加を申し込む';
+      errorBanner.textContent = '送信に時間がかかっています。通信状況をご確認のうえ、もう一度お試しください。';
+      errorBanner.classList.add('show');
+    }, 15000);
+    HTMLFormElement.prototype.submit.call(form);
+  });
+
+  frame.addEventListener('load', () => {
+    if (!submitted) return;
+    if (timeoutId) clearTimeout(timeoutId);
+    submitted = false;
+    window.location.replace('poc2-complete.html');
+  });
+})();
+</script>
+
 </body>
 </html>
